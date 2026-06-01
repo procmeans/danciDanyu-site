@@ -1,0 +1,171 @@
+/* JigsawWords public site — clean, minimal, mobile-first. */
+
+:root {
+  --fg: #1c1d22;
+  --fg-muted: #5a5d68;
+  --bg: #ffffff;
+  --bg-alt: #f6f7f9;
+  --accent: #2a6df4;
+  --border: rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+  --max-w: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+               "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* Top nav — same on every page */
+nav.site {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+nav.site .wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+nav.site .brand {
+  font-weight: 700;
+  color: var(--fg);
+  font-size: 17px;
+}
+nav.site .links { margin-left: auto; display: flex; gap: 14px; }
+nav.site .links a { color: var(--fg-muted); font-size: 14px; }
+nav.site .links a.active { color: var(--fg); font-weight: 600; }
+
+/* Headings */
+h1 { font-size: 32px; line-height: 1.25; margin: 8px 0 8px; letter-spacing: -0.5px; }
+h2 { font-size: 22px; margin: 36px 0 10px; letter-spacing: -0.2px; }
+h3 { font-size: 17px; margin: 22px 0 6px; }
+p, li { color: var(--fg); }
+.muted { color: var(--fg-muted); font-size: 14px; }
+
+/* Hero (landing) */
+.hero {
+  padding: 24px 0 16px;
+}
+.hero .tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(42, 109, 244, 0.10);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.hero .lede {
+  font-size: 18px;
+  color: var(--fg-muted);
+  max-width: 56ch;
+  margin: 12px 0 18px;
+}
+
+/* Feature grid (landing) */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 18px 0 12px;
+}
+.feature {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+  background: var(--bg-alt);
+}
+.feature h3 { margin: 0 0 4px; font-size: 15px; }
+.feature p  { margin: 0; color: var(--fg-muted); font-size: 14px; }
+
+/* Cards (used by FAQ, contact) */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  background: var(--bg-alt);
+  margin: 12px 0;
+}
+.card h3 { margin: 0 0 6px; font-size: 16px; }
+.card p  { margin: 6px 0 0; }
+
+/* Contact list */
+.contact-list { list-style: none; padding: 0; margin: 10px 0; }
+.contact-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.contact-list li:last-child { border-bottom: none; }
+.contact-list .label {
+  width: 60px;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+.contact-list .value { font-weight: 600; }
+
+/* Tables for the privacy data list */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14.5px;
+}
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+th { color: var(--fg-muted); font-weight: 600; font-size: 13px; }
+
+/* Footer */
+footer.site {
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+  padding: 20px 0;
+  font-size: 13px;
+  color: var(--fg-muted);
+  text-align: center;
+}
+footer.site a { color: var(--fg-muted); }
+footer.site a + a { margin-left: 12px; }
+
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 19px; }
+  nav.site .brand { font-size: 16px; }
+  main { padding: 24px 16px 60px; }
+}

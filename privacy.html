@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私政策 · 单词单语</title>
+  <meta name="description" content="单词单语的隐私政策。" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site">
+    <div class="wrap">
+      <a class="brand" href="index.html">单词单语</a>
+      <div class="links">
+        <a href="index.html">首页</a>
+        <a href="support.html">支持</a>
+        <a class="active" href="privacy.html">隐私政策</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <h1>单词单语 · 隐私政策</h1>
+    <p class="muted">生效日期:2026-05-21(v1.0) · 最近修订:2026-06-01</p>
+
+    <p>
+      「单词单语」(下称"我们"或"本应用")非常重视您的隐私。本政策说明在您使用本应用 iOS 端时,我们收集、使用、存储哪些信息,以及您对这些信息拥有的权利。如果您不同意本政策的任何条款,请勿安装或使用本应用。
+    </p>
+
+    <h2>一、我们不收集什么</h2>
+    <p>本应用的核心练习功能<strong>完全离线</strong>。我们:</p>
+    <ul>
+      <li><strong>不收集</strong>您的个人身份信息(姓名、手机号、邮箱、身份证号等);</li>
+      <li><strong>不收集</strong>您的设备识别符(IDFA、IDFV、UUID 等);</li>
+      <li><strong>不收集</strong>您的位置信息、通讯录、相册或日历;</li>
+      <li><strong>不向任何第三方服务器</strong>发送您的学习记录、收藏单词或搜索历史;</li>
+      <li><strong>不集成</strong>任何第三方分析、广告或追踪 SDK;</li>
+      <li><strong>不要求</strong>您注册账号或登录。</li>
+    </ul>
+
+    <h2>二、我们在本地存储什么</h2>
+    <p>应用为了实现核心功能,会在您的设备本地(沙盒目录)保存以下信息:</p>
+    <table>
+      <thead>
+        <tr><th>数据</th><th>存储位置</th><th>用途</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>学习进度(已完成的词集和模式)</td><td>UserDefaults</td><td>显示完成徽章、最近练习入口</td></tr>
+        <tr><td>间隔重复状态(每个单词的下次复习日期、熟练度等)</td><td>Application Support / memory-store-v1.json</td><td>SM-2 复习算法运行</td></tr>
+        <tr><td>每日复习活动计数</td><td>Application Support / daily-activity-v1.json</td><td>打卡 streak、12 周热图</td></tr>
+        <tr><td>应用偏好(每日提醒时间、是否启用提醒)</td><td>UserDefaults</td><td>设置面板</td></tr>
+        <tr><td>词典收藏的单词</td><td>UserDefaults</td><td>"我的收藏"、Practice 收藏练习池</td></tr>
+        <tr><td>词典搜索历史(最近 20 条)</td><td>UserDefaults</td><td>快速复用查询</td></tr>
+        <tr><td>已掌握单词集合</td><td>UserDefaults</td><td>个性化推荐、跳过已会词</td></tr>
+        <tr><td>AI 对话历史</td><td>UserDefaults</td><td>"AI 分析"标签内的会话记忆</td></tr>
+      </tbody>
+    </table>
+    <p>
+      以上所有数据<strong>仅存储在您本机的应用沙盒中</strong>,卸载应用即随系统机制清除。我们无法在服务端访问、备份或同步这些数据。
+    </p>
+    <p>您可以随时在<strong>"我的 → 设置 → 数据"</strong>中:</p>
+    <ul>
+      <li>清空学习记录(SM-2 状态 + 活动计数);</li>
+      <li>清空收藏与历史(收藏单词 + 搜索历史)。</li>
+    </ul>
+
+    <h2>三、AI 功能与数据传输</h2>
+    <p>
+      <strong>AI 智能拆解、AI 学习诊断、AI 学习助手</strong>是可选功能,默认开启但可以在
+      <strong>"我的 → 设置 → AI 智能分析"</strong>中关闭。开启时:
+    </p>
+    <ul>
+      <li>
+        <strong>内置积分路径</strong>:应用通过 HTTPS 调用我们自己的代理服务器,代理再调用 DeepSeek 模型。
+        <em>发送内容包括:</em>当前查询的单词与释义、当前对话(在 AI 助手内输入的文字)、为生成学习诊断而聚合的统计摘要(累计复习次数、掌握/学习中数量、易忘词列表 — 不含设备身份信息或账户信息)。
+        <em>不发送:</em>您的姓名、邮箱、设备识别符、位置、其他单词集的完整数据。
+      </li>
+      <li>
+        <strong>BYOK 路径(自带 API Key)</strong>:在<strong>"我的 → 设置 → 使用自己的 API Key"</strong>填入自己的 DeepSeek Key 后,应用直接调用 DeepSeek API,绕过我们的代理。此模式下您的内容只在您和 DeepSeek 之间传递,我们的服务器不参与。Key 仅保存在本机 Keychain。
+      </li>
+      <li>
+        AI 调用都不会在我们服务端长期保留对话内容;代理仅做请求转发与短期速率限制必需的日志。
+      </li>
+      <li>
+        如完全不希望使用 AI,关闭"AI 智能分析"开关后,应用不会向我们或 DeepSeek 发送任何数据。
+      </li>
+    </ul>
+
+    <h2>四、通知权限</h2>
+    <p>
+      如果您在"我的 → 设置 → 每日复习提醒"中启用每日提醒,应用会调用 iOS 系统通知 API
+      (UNUserNotificationCenter)在您指定的本地时间投递一条本地通知。该通知<strong>仅在您的设备本机生成</strong>,不经过任何远程推送服务,亦不携带广告或营销内容。您可以随时关闭。
+    </p>
+
+    <h2>五、第三方词典数据归属</h2>
+    <p>应用使用以下开源词典数据,已在"我的 → 致谢"中标注:</p>
+    <ul>
+      <li><strong>ECDICT</strong>(MIT)— 中文释义主要来源;</li>
+      <li><strong>Webster's 1913</strong>(公有领域)— 英文释义主要来源;</li>
+      <li><strong>English Wiktionary</strong>(CC BY-SA 4.0)— 英文释义备用来源;</li>
+      <li><strong>Princeton WordNet 3.0</strong>(WordNet License)— 同义词组归类数据来源。</li>
+    </ul>
+    <p>我们尊重并履行上述协议规定的归属要求。词典数据<strong>随应用一同分发</strong>,运行时不联网下载。</p>
+
+    <h2>六、儿童隐私</h2>
+    <p>
+      本应用面向 <strong>4 岁及以上</strong>所有年龄段的英语学习者。由于我们不收集任何个人信息,亦不要求注册账号,应用本身不存在儿童信息泄露的风险。家长可通过 iOS "屏幕使用时间"管理孩子的使用时长。
+    </p>
+
+    <h2>七、您的权利</h2>
+    <p>由于本应用不在服务端存储您的任何数据,您<strong>无需向我们提交任何请求</strong>即可:</p>
+    <ul>
+      <li><strong>查看</strong>您的数据:在应用内即可看到所有;</li>
+      <li><strong>删除</strong>您的数据:使用"我的 → 设置 → 数据"中的清空按钮,或在系统设置中卸载本应用;</li>
+      <li><strong>导出</strong>您的数据:当前版本暂不提供导出功能,未来版本计划支持 JSON / CSV 导出。</li>
+    </ul>
+
+    <h2>八、政策变更</h2>
+    <p>
+      如本政策有重要修改,我们会在应用内"我的 → 关于"中显著标示新版本生效日期。继续使用应用即视为您接受变更后的条款。
+    </p>
+
+    <h2>九、联系我们</h2>
+    <p>如对本政策有任何疑问,请通过以下任一方式联系作者:</p>
+    <ul class="contact-list">
+      <li><span class="label">邮箱</span><a class="value" href="mailto:b@guannian.com">b@guannian.com</a></li>
+      <li><span class="label">微信</span><span class="value">eclectically</span></li>
+      <li><span class="label">X</span><a class="value" href="https://x.com/eacdoend">@eacdoend</a></li>
+    </ul>
+
+    <p class="muted" style="margin-top: 36px;">
+      本政策仅有中文版本。如需翻译为其他语言,请以中文版为准。
+    </p>
+  </main>
+
+  <footer class="site">
+    <a href="index.html">首页</a>
+    <a href="support.html">支持</a>
+    <span>· © 2026 单词单语</span>
+  </footer>
+</body>
+</html>
