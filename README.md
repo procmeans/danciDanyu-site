@@ -12,4 +12,4 @@
 
 - 邮箱：b@guannian.com
 - 微信：eclectically
-- X：[@eacdoend](https://x.com/eacdoend)
+- X：[@eachdoend](https://x.com/eachdoend)
